@@ -63,9 +63,8 @@ end
 
 end
 
-function obj = objective(R, S, L, lambda)
-    obj = trace(R, sigma) - log(det(R)) + alpha*norm(S, 1) + beta*trace(L) + ...
-        - trace(lambda*(R - S + L)) + (norm(R - S + L, 'fro')^2)/2*mu;
+function obj = objective(R, S, L, alpha, beta)
+    obj = trace(R, sigma) - log(det(R)) + alpha*norm(S, 1) + beta*trace(L);
 end
 
 function shrink = shrinkage(a, kappa)
